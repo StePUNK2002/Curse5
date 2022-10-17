@@ -209,24 +209,11 @@
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
-    <property name="geometry">
-     <rect>
-      <x>230</x>
-      <y>230</y>
-      <width>201</width>
-      <height>32</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Построить график x(y)</string>
-    </property>
-   </widget>
    <widget class="QPushButton" name="pushButton_2">
     <property name="geometry">
      <rect>
-      <x>230</x>
-      <y>260</y>
+      <x>240</x>
+      <y>230</y>
       <width>201</width>
       <height>32</height>
      </rect>
@@ -238,8 +225,8 @@
    <widget class="QPushButton" name="pushButton_3">
     <property name="geometry">
      <rect>
-      <x>190</x>
-      <y>290</y>
+      <x>200</x>
+      <y>260</y>
       <width>271</width>
       <height>32</height>
      </rect>

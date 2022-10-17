@@ -7,7 +7,6 @@
 
 
 from PyQt6 import QtCore, QtGui, QtWidgets
-import requests
 from PyQt6.QtGui import QPixmap
 
 
@@ -58,20 +57,23 @@ class Ui_MainWindow(object):
         self.label_7.setObjectName("label_7")
         self.label_8 = QtWidgets.QLabel(self.centralwidget)
         self.label_8.setGeometry(QtCore.QRect(230, 20, 201, 51))
+        self.label_8.setStyleSheet("border-image: url(:/newPrefix/func.png);")
         self.label_8.setText("")
+        self.label_8.setPixmap(QtGui.QPixmap(":/newPrefix/func.png"))
+        self.label_8.setScaledContents(True)
         self.label_8.setObjectName("label_8")
         self.label_10 = QtWidgets.QLabel(self.centralwidget)
-        self.label_10.setGeometry(QtCore.QRect(180, 80, 301, 151))
+        self.label_10.setGeometry(QtCore.QRect(140, 70, 391, 161))
+        self.label_10.setStyleSheet("border-image: url(:/newPrefix/шаг.jpg);")
         self.label_10.setText("")
+        self.label_10.setPixmap(QtGui.QPixmap(":/newPrefix/шаг.jpg"))
+        self.label_10.setScaledContents(True)
         self.label_10.setObjectName("label_10")
-        self.pushButton = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton.setGeometry(QtCore.QRect(230, 230, 201, 32))
-        self.pushButton.setObjectName("pushButton")
         self.pushButton_2 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_2.setGeometry(QtCore.QRect(230, 260, 201, 32))
+        self.pushButton_2.setGeometry(QtCore.QRect(240, 230, 201, 32))
         self.pushButton_2.setObjectName("pushButton_2")
         self.pushButton_3 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_3.setGeometry(QtCore.QRect(190, 290, 271, 32))
+        self.pushButton_3.setGeometry(QtCore.QRect(200, 260, 271, 32))
         self.pushButton_3.setObjectName("pushButton_3")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
@@ -95,7 +97,6 @@ class Ui_MainWindow(object):
         self.label_5.setText(_translate("MainWindow", "Введите c"))
         self.label_6.setText(_translate("MainWindow", "Введите d"))
         self.label_7.setText(_translate("MainWindow", "Функция"))
-        self.pushButton.setText(_translate("MainWindow", "Построить график x(y)"))
         self.pushButton_2.setText(_translate("MainWindow", "Построить график x(t)"))
         self.pushButton_3.setText(_translate("MainWindow", "Построить график погрешности"))
 class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
