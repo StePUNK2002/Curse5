@@ -8,6 +8,26 @@
 
 from PyQt6 import QtCore, QtGui, QtWidgets
 from PyQt6.QtGui import QPixmap
+from PyQt6.QtWidgets import QMessageBox
+import math
+
+"""
+self.lineEdit   = h
+self.lineEdit_2 = T
+self.lineEdit_3 = a
+self.lineEdit_4 = b
+self.lineEdit_5 = c
+self.lineEdit_6 = d
+"""
+xs = [] # массив точек x(t)
+x0 = 0
+h = 0
+T = 0
+#Коэффициенты у функции
+a = 0
+b = 0
+c = 0
+d = 0
 
 
 class Ui_MainWindow(object):
@@ -99,6 +119,48 @@ class Ui_MainWindow(object):
         self.label_7.setText(_translate("MainWindow", "Функция"))
         self.pushButton_2.setText(_translate("MainWindow", "Построить график x(t)"))
         self.pushButton_3.setText(_translate("MainWindow", "Построить график погрешности"))
+
+    def funcX(self, x):
+        """
+        Подсчет и возврат значения функции
+        :param x: точка
+        :return: значение функции
+        """""
+        return (a * (x ** 2) / (b * (x ** 4) + 4 + math.sin(c * x))) * math.sin((d * x) / 2)
+
+    def graphXt(self):
+        """
+        Функция для получения точек и построения функций
+        """
+        """
+        self.lineEdit   = h
+        self.lineEdit_2 = T
+        self.lineEdit_3 = a
+        self.lineEdit_4 = b
+        self.lineEdit_5 = c
+        self.lineEdit_6 = d
+        """
+        try:
+            h = int(self.lineEdit.text())
+            T = int(self.lineEdit_2.text())
+            a = int(self.lineEdit_3.text())
+            b = int(self.lineEdit_4.text())
+            c = int(self.lineEdit_5.text())
+            d = int(self.lineEdit_6.text())
+        except ValueError:
+            print("Вы ввели не число в одной из строк")
+            dialog = QMessageBox(parent=self, text="Вы ввели не число в одной из строк")
+            dialog.setWindowTitle("Ошибка преобразования")
+            ret = dialog.exec()
+
+    def graphRunge(self):
+        """
+        Функция для построения графика
+        погрешности методом Рунге
+        """
+        pass
+
+
 class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
     def __init__(self):
@@ -110,6 +172,10 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.label_8.setScaledContents(True)
         self.label_10.setPixmap(pixmap1)
         self.label_10.setScaledContents(True)
+        self.pushButton_2.clicked.connect(self.graphXt)
+        self.pushButton_3.clicked.connect(self.graphRunge)
+
+
 if __name__ == '__main__':
     import sys
 
