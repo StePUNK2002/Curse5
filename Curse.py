@@ -31,8 +31,6 @@ a = 0
 b = 0
 c = 0
 d = 0
-
-
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
@@ -93,11 +91,14 @@ class Ui_MainWindow(object):
         self.label_10.setScaledContents(True)
         self.label_10.setObjectName("label_10")
         self.pushButton_2 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_2.setGeometry(QtCore.QRect(240, 230, 201, 32))
+        self.pushButton_2.setGeometry(QtCore.QRect(190, 250, 281, 32))
         self.pushButton_2.setObjectName("pushButton_2")
-        self.pushButton_3 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_3.setGeometry(QtCore.QRect(200, 260, 271, 32))
-        self.pushButton_3.setObjectName("pushButton_3")
+        self.label_9 = QtWidgets.QLabel(self.centralwidget)
+        self.label_9.setGeometry(QtCore.QRect(10, 270, 71, 21))
+        self.label_9.setObjectName("label_9")
+        self.lineEdit_7 = QtWidgets.QLineEdit(self.centralwidget)
+        self.lineEdit_7.setGeometry(QtCore.QRect(10, 290, 113, 21))
+        self.lineEdit_7.setObjectName("lineEdit_7")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 597, 24))
@@ -120,9 +121,8 @@ class Ui_MainWindow(object):
         self.label_5.setText(_translate("MainWindow", "Введите c"))
         self.label_6.setText(_translate("MainWindow", "Введите d"))
         self.label_7.setText(_translate("MainWindow", "Функция"))
-        self.pushButton_2.setText(_translate("MainWindow", "Построить график x(t)"))
-        self.pushButton_3.setText(_translate("MainWindow", "Построить график погрешности"))
-
+        self.pushButton_2.setText(_translate("MainWindow", "Построить график x(t) и погрешности"))
+        self.label_9.setText(_translate("MainWindow", "Введите xo"))
     def funcX(self, x):
         """
         Подсчет и возврат значения функции
@@ -130,10 +130,6 @@ class Ui_MainWindow(object):
         :return: значение функции
         """""
         return (a * (x ** 2) / (b * (x ** 4) + 4 + math.sin(c * x))) * math.sin((d * x) / 2)
-    def K1(self, m):
-        return h*self.funcX(m)
-    def K2(self, m):
-        return h*self.funcX(m + (self.K1(m)/4 ))
 
     def countK(self,h, f):
         return (h * f)
@@ -141,7 +137,6 @@ class Ui_MainWindow(object):
     def funcBySteps(self, h, N, massiveFunc, massiveEr):
         h = int(h)
         N = int(N)
-        x0 = 1
         xm = x0
         for i in range(0, int(N+1)):
             K1h = self.countK(h, self.funcX(xm))
@@ -187,12 +182,14 @@ class Ui_MainWindow(object):
             global b
             global c
             global d
+            global x0
             h = float(self.lineEdit.text())
             T = int(self.lineEdit_2.text())
             a = float(self.lineEdit_3.text())
             b = float(self.lineEdit_4.text())
             c = float(self.lineEdit_5.text())
             d = float(self.lineEdit_6.text())
+            x0 = int(self.lineEdit_7.text())
             if T < h:
                 print("T < h")
                 dialog = QMessageBox(parent=self, text="Шаг не может быть больше T")
@@ -242,7 +239,6 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.label_10.setPixmap(pixmap1)
         self.label_10.setScaledContents(True)
         self.pushButton_2.clicked.connect(self.graphXt)
-        self.pushButton_3.clicked.connect(self.graphRunge)
 
 
 if __name__ == '__main__':

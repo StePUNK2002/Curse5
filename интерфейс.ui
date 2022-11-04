@@ -212,27 +212,37 @@
    <widget class="QPushButton" name="pushButton_2">
     <property name="geometry">
      <rect>
-      <x>240</x>
-      <y>230</y>
-      <width>201</width>
+      <x>190</x>
+      <y>250</y>
+      <width>281</width>
       <height>32</height>
      </rect>
     </property>
     <property name="text">
-     <string>Построить график x(t)</string>
+     <string>Построить график x(t) и погрешности</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_3">
+   <widget class="QLabel" name="label_9">
     <property name="geometry">
      <rect>
-      <x>200</x>
-      <y>260</y>
-      <width>271</width>
-      <height>32</height>
+      <x>10</x>
+      <y>270</y>
+      <width>71</width>
+      <height>21</height>
      </rect>
     </property>
     <property name="text">
-     <string>Построить график погрешности</string>
+     <string>Введите xo</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit_7">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>290</y>
+      <width>113</width>
+      <height>21</height>
+     </rect>
     </property>
    </widget>
   </widget>
