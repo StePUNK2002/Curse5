@@ -204,9 +204,12 @@ class Ui_MainWindow(object):
                     ts.append(i * h)
                 print(ts)
                 self.funcBySteps(h, N, xs, masser) #пока не работает
+                plt.figure("График x(t)")
                 plt.plot(ts, xs,color='red', label="x(t)")
-                plt.plot(ts, masser, color='blue', label="Погрешность")
                 plt.legend(loc='lower right', frameon=False)
+                plt.figure("График погрешности")
+                plt.plot(ts, masser, color='blue', label="Погрешность")
+                plt.legend(loc='upper right', frameon=False)
                 plt.show()
                 print("x(t)")
                 print(xs)

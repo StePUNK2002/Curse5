@@ -11,6 +11,9 @@ from PyQt6.QtGui import QPixmap
 from PyQt6.QtWidgets import QMessageBox
 import math
 from matplotlib import pyplot as plt
+#self.pushButton_3 = QtWidgets.QPushButton(self.centralwidget)
+#self.pushButton_3.setGeometry(QtCore.QRect(190, 280, 281, 32))
+#self.pushButton_3.setObjectName("pushButton_3")
 
 """
 self.lineEdit   = h
