@@ -199,11 +199,11 @@ class Ui_MainWindow(object):
                 dialog = QMessageBox(parent=self, text="T не может быть меньше 0")
                 ret = dialog.exec()
             else:
-                N = T / h  # Узнаем число узловых точек
+                N = int(T / h)  # Узнаем число узловых точек
                 for i in range(int(N + 1)):
                     ts.append(i * h)
                 print(ts)
-                self.funcBySteps(h, N, xs, masser) #пока не работает
+                self.funcBySteps(h, N, xs, masser)
                 plt.figure("График x(t)")
                 plt.plot(ts, xs,color='red', label="x(t)")
                 plt.legend(loc='lower right', frameon=False)
@@ -222,12 +222,6 @@ class Ui_MainWindow(object):
             print("В одной из строк или в строках находится неверный формат данных")
             dialog = QMessageBox(parent=self, text="В одной из строк или в строках находится неверный формат данных")
             ret = dialog.exec()
-
-    def graphRunge(self):
-        """
-        Функция для построения графика
-        погрешности методом Рунге
-        """
 
 
 class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
